@@ -1,0 +1,12 @@
+{
+    "name": "employee-tracker",
+    "lockfileVersion": 3,
+    "requires": true,
+    "packages": {},
+
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+      "inquirer": "^8.2.4"
+  }
+}

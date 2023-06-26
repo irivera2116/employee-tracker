@@ -1,3 +1,4 @@
+// Access inquirer for the question prompt
 const inquirer = require('inquirer');
 
 inquirer

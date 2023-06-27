@@ -19,4 +19,12 @@ const data = mysql.createConnection(
     initialPrompt();
   });
 
+  const viewDepartments = () => {
+    db.query('SELECT * FROM department', function (err, results) {
+      console.log('');
+      console.table(results);
+      initialPrompt();
+    });
+  }
+
   

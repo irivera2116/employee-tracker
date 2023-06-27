@@ -20,7 +20,7 @@ VALUES ('Site Manager', 250000, 4),
     ('Seasoning Operator', 42000, 5),
     ('Cooking Operator', 47000, 5);
 
-INSERT INTO employee (first_name, last_name, roles_id, manager_id)
+INSERT INTO employees (first_name, last_name, role_id, manager_id)
 VALUES ('John', 'Doe', 5, NULL),
     ('Jane', 'Smith', 7, NULL),
     ('Steven', 'Chavez', 1, NULL),

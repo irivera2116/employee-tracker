@@ -3,19 +3,19 @@ CREATE DATABASE business_db;
 
 USE business_db;
 
-CREATE TABLE department (
+CREATE TABLE departments (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(300)
+    department_name VARCHAR(300)
 );
 
 CREATE TABLE roles (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     department_id INT,
     title VARCHAR(30),
-    salary DECIMAL NOT NULL,
+    salary DECIMAL (20, 3),
     CONSTRAINT fk_department,
     FOREIGN KEY (department_id), 
-    REFERENCES department(id),
+    REFERENCES departments(id),
     ON DELETE CASCADE
 );
 

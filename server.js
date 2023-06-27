@@ -1,34 +1,22 @@
-// links express and mysql
-const express = require('express');
-const mysql = require('mysql2');
+// link mysql, inquirer, console table
+const mysql = require('mysql12');
+const inquirer = require('inquirer');
+const cTable = require('console.table');
 
-// Using localhost 3001
 const PORT = process.env.PORT || 3001;
-const app = express();
 
-app.use(express.urlencoded({ extended: true}));
-app.use(express.json());
-app.use(express.static('public'));
+const data = mysql.createConnection(
+  {
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'business_db'
+  });
 
-const db = mysql.createConnection(
-    {
-      host: 'localhost',
-      // MySQL username,
-      user: 'root',
-      // MySQL password
-      password: '',
-      database: ''
-    },
-    console.log(`Connected!`)
-  );
-  
-  // Query database
-  db.query('SELECT * FROM ', function (err, results) {
-    console.log(results);
+  db.connect((err) => {
+    if (err) throw err;
+    console.log(`Connected to business_db`);
+    initialPrompt();
   });
-  
-  // listen for incoming connections on the specified port
-  app.listen(PORT, () => {
-    console.log(`Listening at http://localhost:${PORT}`)
-  });
+
   

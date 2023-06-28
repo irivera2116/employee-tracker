@@ -35,7 +35,7 @@ function start() {
               "Delete Departments | Roles | Employees",
               "Exit",
           ],
-      }) .then((result) => {s
+      }) .then((result) => {
           switch (result.selection) {
               case "View departments":
                   viewDept();

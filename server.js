@@ -4,7 +4,6 @@ const sql = require('mysql2');
 // Connection to mysql
 const connecting =  sql.createConnection({
   host: "localhost",
-  //port: 3000,
   user: "root",
   password: "4118Vernon",
   database: "business_db"
@@ -36,15 +35,15 @@ function start() {
               "Delete Departments | Roles | Employees",
               "Exit",
           ],
-      }) .then((result) => {
-          switch (result.action) {
+      }) .then((result) => {s
+          switch (result.selection) {
               case "View departments":
                   viewDept();
                   break;
               case "View roles":
                   viewRoles();
                   break;
-              case "View employees":
+              case "View all employees":
                   viewEmployees();
                   break;
               case "Add a department":
@@ -103,10 +102,10 @@ function viewRoles() {
 
 function viewEmployees() {
   const query = ` SELECT e.id, e.first_name, e.last_name, r.title, d.department_name, r.salary, CONCAT(m.first_name, ' ', m.last_name) AS manager_name
-  FROM employee e
+  FROM employees e
   LEFT JOIN roles r ON e.role_id = r.id
   LEFT JOIN departments d ON r.department_id = d.id
-  LEFT JOIN employee m ON e.manager_id = m.id;`;
+  LEFT JOIN employees m ON e.manager_id = m.id;`;
 
   connecting.query(query, (err, res) => {
       if (err) throw err;
